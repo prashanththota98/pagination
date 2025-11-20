@@ -28,6 +28,19 @@ function App() {
   console.log(totalProducts);
   return (
     <>
+      <div className="stars">
+        {[...Array(100)].map((_, i) => (
+          <div
+            key={i}
+            className="star"
+            style={{
+              left: Math.random() * 100 + "vw",
+              animationDuration: 2 + Math.random() * 4 + "s",
+              animationDelay: Math.random() * 5 + "s",
+            }}
+          ></div>
+        ))}
+      </div>
       <div className="pagination">
         {Array.from({ length: totalPages }, (_, i) => (
           <button
