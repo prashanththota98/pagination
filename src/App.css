@@ -9,6 +9,7 @@
   margin: 10px;
   background-color: transparent;
   border: 1px solid;
+  border-radius: 5px;
   padding: 10px 20px 10px 20px;
 }
 
@@ -18,7 +19,7 @@
 }
 
 .card {
-  background-color: aquamarine;
+  background-color: lightgreen;
   height: 300px;
   width: 250px;
   margin: 20px;
@@ -29,6 +30,11 @@
   justify-content: center;
 }
 
+.but:hover {
+  background-color: #f0f0f0;
+  color: black;
+}
+
 .image-size {
   height: 100px;
   width: 100px;
@@ -36,4 +42,9 @@
 
 .heading {
   text-align: center;
+}
+
+.active {
+  background-color: lightblue;
+  color: aliceblue;
 }

@@ -30,7 +30,11 @@ function App() {
     <>
       <div className="pagination">
         {Array.from({ length: totalPages }, (_, i) => (
-          <button key={i} onClick={() => setCurrentPage(i + 1)} className="but">
+          <button
+            key={i}
+            onClick={() => setCurrentPage(i + 1)}
+            className={`but ${currentPage === i + 1 ? "active" : ""}`}
+          >
             {i + 1}
           </button>
         ))}
@@ -48,3 +52,58 @@ function App() {
 }
 
 export default App;
+
+/* import { useEffect, useState } from "react";
+import "./App.css";
+
+function App() {
+  const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [total, setTotal] = useState(0);
+
+  const limit = 20; // items per page
+
+  const fetchData = async (page = 1) => {
+    const skip = (page - 1) * limit;
+    const response = await fetch(
+      `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
+    );
+    const data = await response.json();
+    setProducts(data.products);
+    setTotal(data.total); // total products count from server
+  };
+
+  useEffect(() => {
+    fetchData(currentPage);
+  }, [currentPage]);
+
+  const totalPages = Math.ceil(total / limit);
+
+  return (
+    <>
+      <div className="pagination">
+        {Array.from({ length: totalPages }, (_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrentPage(i + 1)}
+            className={`but ${currentPage === i + 1 ? "active" : ""}`}
+          >
+            {i + 1}
+          </button>
+        ))}
+      </div>
+
+      <div className="maincard">
+        {products.map((eachItem) => (
+          <div key={eachItem.id} className="card">
+            <img src={eachItem.images[0]} alt="img" className="image-size" />
+            <h1 className="heading">{eachItem.title}</h1>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+export default App;
+*/
